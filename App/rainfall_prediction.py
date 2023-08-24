@@ -32,7 +32,8 @@ def predict_rainfall(data_input):
     input_array = np.array(data_input_normalize)
     input_array = input_array.reshape((1, 1, input_array.shape[0]))
 
-    model = load_model('model.h5', custom_objects={
+    model_path='App/model.h5'
+    model = load_model(model_path, custom_objects={
                        'rmsle': rmsle, 'rmse': rmse})
 
     predict = model.predict(input_array)
